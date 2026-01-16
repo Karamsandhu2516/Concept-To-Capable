@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: heavy-db
+spec:
+  nodeSelector:
+    disktype: ssd # This label does not exist on your OrbStack nodes
+  containers:
+  - name: db
+    image: redis

@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: mysql-pvc
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi # This might be too large for a local lab!
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: mysql-db
+spec:
+  containers:
+  - name: mysql
+    image: mysql:latest
+    env:
+    - name: MYSQL_ROOT_PASSWORD
+      value: "password"
+    volumeMounts:
+    - name: mysql-storage
+      mountPath: /var/lib/mysql
+  volumes:
+  - name: mysql-storage
+    persistentVolumeClaim:
+      claimName: mysql-pvc
