@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: web-worker
+  labels:
+    env: production
+    tier: frontend
+spec:
+  containers:
+  - name: nginx
+    image: nginx
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: web-entry
+spec:
+  selector:
+    env: prod         # <--- TYPO HERE (Should be 'production')
+  ports:
+  - port: 80
