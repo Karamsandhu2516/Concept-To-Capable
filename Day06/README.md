@@ -4,19 +4,6 @@ Welcome to Day 06! Today I focus on **Persistence**. In Kubernetes, if a Pod die
 
 ---
 
-## 🧐 What are PV and PVC? (Non-Tech Terms)
-
-Imagine you are looking for a house to rent:
-
-### 1. Persistent Volume (PV) - **The Actual House** 🏠
-*   **What it is:** A physical piece of storage (like a Hard Drive, an SSD, or Cloud Storage) that exists in the cluster.
-*   **Layman Term:** Think of it as a physical house built by a landlord. It has a specific size (e.g., 3 bedrooms) and is ready for someone to live in.
-
-### 2. Persistent Volume Claim (PVC) - **The Rental Application** 📄
-*   **What it is:** A request by a user (or a Pod) for storage. It says "I need 1GB of space with read/write access."
-*   **Layman Term:** This is you saying, "I need a house with at least 1 bedroom." Kubernetes then looks at the available houses (PVs) and matches your application (PVC) to a suitable house (PV).
-
----
 
 ## 🛠 How it worked in my Day 06 files
 
@@ -73,4 +60,3 @@ Here is the proof that it works! I created a file, deleted the pod, and when the
 *   **PVC** is how I ask for it; **PV** is the actual physical disk.
 
 ---
-*Created as part of the [Concept-To-Capable](https://github.com/Karamsandhu2516/Concept-To-Capable) journey.* 🚀
