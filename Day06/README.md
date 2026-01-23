@@ -53,4 +53,5 @@ This is where we actually **use** that storage in our application.
 *   **PVC** is how you ask for it; **PV** is the actual physical disk.
 
 ---
-*Created as part of the [Concept-To-Capable](https://github.com/Karamsandhu2516/Concept-To-Capable) journey.* 🚀
+
+
