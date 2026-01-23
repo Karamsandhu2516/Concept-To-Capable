@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web-worker-deploy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: web-worker
+  template:
+    metadata:
+      labels:
+        app: web-worker
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:1.25
+        volumeMounts:
+        - name: shop-data
+          mountPath: /usr/share/nginx/html  # Permanent storage for website files
+        - name: config
+          mountPath: /etc/nginx/conf.d/status.conf
+          subPath: status.conf
+      - name: metrics-exporter
+        image: nginx/nginx-prometheus-exporter:1.1.0
+        args: ["-nginx.scrape-uri=http://127.0.0.1:8080/nginx_status"]
+      volumes:
+      - name: shop-data
+        persistentVolumeClaim:
+          claimName: test-pvc
+      - name: config
+        configMap:
+          name: nginx-config
