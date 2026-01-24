@@ -39,3 +39,6 @@ A: RWO means the volume can be mounted by only one node at a time. If replicas a
 
 #### How do you debug a Pod that is in CrashLoopBackOff?
 A: Use kubectl logs <pod-name> --previous to see the logs from the last crashed instance, and kubectl describe pod to check for resource limits (OOMKilled) or configuration errors.
+
+#### What happens if I give a user a Role in the 'default' namespace, but they try to list pods in the 'kube-system' namespace?
+A:They will get a Forbidden error. Because a Role and RoleBinding are namespaced. They only grant power inside the specific namespace where they were created. To give access everywhere, you would need a ClusterRole and a ClusterRoleBinding.
