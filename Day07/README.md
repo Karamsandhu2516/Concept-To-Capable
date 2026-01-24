@@ -40,7 +40,7 @@ The role granted is **Read-Only access to Pods**.
 ## Implementation & Verification Output
 Below is the terminal output showing the creation of these resources and the verification of permissions using `kubectl auth can-i`.
 
-![Terminal Output](./screenshot.png)
+![Terminal Output](./output.png)
 
 From the screenshot:
 - `kubectl auth can-i get pods ...` returns **yes** (Authorized).
