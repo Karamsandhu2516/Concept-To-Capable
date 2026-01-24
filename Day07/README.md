@@ -3,7 +3,7 @@
 ## Overview
 Day 07 focuses on understanding and implementing **Role-Based Access Control (RBAC)** in Kubernetes. RBAC is a method of regulating access to computer or network resources based on the roles of individual users within an enterprise.
 
-In this lab, we created a ServiceAccount, defined a Role with specific permissions, and bound them together using a RoleBinding.
+In this lab, I created a ServiceAccount, defined a Role with specific permissions, and bound them together using a RoleBinding.
 
 ## Manifest Files and Their Functions
 
