@@ -28,7 +28,7 @@ In this lab, I created a ServiceAccount, defined a Role with specific permission
 - **Purpose:** This is the "glue" that connects the **Identity** (`support-user`) to the **Role** (`pod-reader`).
 
 ## How They Communicate and Recognize the Role
-1. **Identification:** The `ServiceAccount` provides an identity. When a request is made to the Kubernetes API, the API server identifies the requester (in our case, we simulated this using `--as=system:serviceaccount:default:support-user`).
+1. **Identification:** The `ServiceAccount` provides an identity. When a request is made to the Kubernetes API, the API server identifies the requester (in this case, I simulated this using `--as=system:serviceaccount:default:support-user`).
 2. **Authorization:** The `RoleBinding` tells the Kubernetes API server: "This specific identity (`support-user`) has the permissions defined in this specific role (`pod-reader`)".
 3. **Recognition:** When the `support-user` tries to perform an action (like `get pods`), Kubernetes checks the `RoleBinding` to find the associated `Role`. It then looks at the `Role`'s rules to see if the action and resource are permitted.
 
